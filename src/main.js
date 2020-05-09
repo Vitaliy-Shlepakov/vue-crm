@@ -1,11 +1,16 @@
-import Vue from 'vue'
-import App from './App.vue'
-import './registerServiceWorker'
-import router from './router'
-import store from './store'
-import 'materialize-css/dist/js/materialize.min'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import Vuelidate from 'vuelidate';
+import store from './store';
 
-Vue.config.productionTip = false
+import dateFilter from './filters/date.filter';
+import './registerServiceWorker';
+import 'materialize-css/dist/js/materialize.min';
+
+Vue.config.productionTip = false;
+Vue.filter('dateFromFilter', dateFilter);
+Vue.use(Vuelidate);
 
 new Vue({
   router,
