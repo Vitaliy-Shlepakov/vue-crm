@@ -1,13 +1,30 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <component :is="layout">
+            <router-view/>
+        </component>
     </div>
-    <router-view/>
-  </div>
 </template>
 
-<style lang="scss">
 
+<script>
+    import AuthLayout from './layouts/AuthLayout';
+    import MainLayout from './layouts/MainLayout';
+
+    export default {
+        components: {
+            AuthLayout,
+            MainLayout
+        },
+        computed: {
+            layout() {
+                return this.$route.meta.layout || 'MainLayout'
+            }
+        }
+    }
+</script>
+
+<style lang="scss">
+    @import '~materialize-css';
+    @import 'assets/index.css';
 </style>
