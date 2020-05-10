@@ -7,9 +7,11 @@ import store from './store';
 import dateFilter from './filters/date.filter';
 import './registerServiceWorker';
 import 'materialize-css/dist/js/materialize.min';
+import messagePlugin from './utils/message.plugin';
 
 Vue.config.productionTip = false;
 Vue.filter('dateFromFilter', dateFilter);
+Vue.use(messagePlugin);
 Vue.use(Vuelidate);
 
 new Vue({
